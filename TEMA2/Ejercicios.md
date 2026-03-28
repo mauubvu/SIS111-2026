@@ -1,0 +1,1 @@
+2. Elaborar un algoritmo generando numeros aleatorio sen un rango de 1..100 una cantidad n donde muestre en ese rango de aleatorios los numeros pares a impares
