@@ -25,7 +25,7 @@ def mostrarResumen(datos):
     print(f"Se deberan pagar {total:.2f}")
 
 def main():
-    print("\n\n--- Empresa Bonos ---")
+    print("\n\n--- Tienda Diablo ---")
     datos=ingresarDatos()
     mostrarResumen(datos)
 
