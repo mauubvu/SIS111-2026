@@ -223,7 +223,7 @@ def agregar_materia():
         print("El estudiante se encuentra inactivo")
         return
     while True:
-        codigo_mat = input("Codigo de la materia (ej. MAT101): ").upper()
+        codigo_mat = input("Codigo de la materia (ej. SIS111): ").upper()
         if not codigo_mat:
             print("El codigo no puede estar vacio")
             continue
