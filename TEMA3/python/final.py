@@ -130,7 +130,7 @@ def registrar_estudiante():
         "materias": []
     }
     estudiantes.append(estudiante)
-    print(f"\nEstudiante {nombre} ({codigo}) registrado exitosamente")
+    print(f"\nEstudiante {nombre} ({codigo}) registrado exitosamente") 
 
 def listar_estudiantes():
     print("-----------------")
