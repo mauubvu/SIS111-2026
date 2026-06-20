@@ -85,12 +85,12 @@ def calcular_porcentaje_asistencia(asistencia):
 def calcular_estado_materia(promedio, porcentaje_asistencia):
     if promedio >= 51 and porcentaje_asistencia >= 75:
         return "Aprobado"
-    elif promedio < 51:
-        return "Reprobado por nota"
+    elif promedio < 51 and porcentaje_asistencia < 75:
+        return "Reprobado por nota y asistencia"
     elif porcentaje_asistencia < 75:
         return "Reprobado por asistencia"
     else:
-        return "Reprobado por nota y asistencia"
+        return "Reprobado por nota"
 
 def calcular_promedio_general(estudiante):
     materias_con_promedio = [m for m in estudiante["materias"] if m["promedio"] is not None]
@@ -111,12 +111,12 @@ def registrar_estudiante():
         else:
             break
     while True:
-        nombre = input("Nombre completo: ").strip()
+        nombre = input("Nombre completo: ").strip().capitalize()
         if nombre:
             break
         print("El nombre no puede estar vacio")
     while True:
-        carrera = input("Carrera: ").strip()
+        carrera = input("Carrera: ").strip().capitalize()
         if carrera:
             break
         print("La carrera no puede estar vacia")
@@ -146,7 +146,7 @@ def listar_estudiantes():
 def buscar_estudiante_menu():
     print("-----------------")
     print("\nBUSCAR ESTUDIANTE\n")
-    codigo = input("Ingrese el codigo del estudiante: ").upper()
+    codigo = input("Ingrese el codigo del estudiante: ").strip().upper()
     e = buscar_estudiante(codigo)
     if not e:
         print("No se encontro ningun estudiante con ese codigo")
@@ -170,7 +170,7 @@ def buscar_estudiante_menu():
 def actualizar_estudiante():
     print("-----------------")
     print("\nACTUALIZAR DATOS DEL ESTUDIANTE\n")
-    codigo = input("Codigo del estudiante: ").upper()
+    codigo = input("Codigo del estudiante: ").strip().upper()
     e = buscar_estudiante(codigo)
     if not e:
         print("No se encontro el estudiante")
@@ -192,7 +192,7 @@ def actualizar_estudiante():
         print("Nombre actualizado")
     elif opcion == "2":
         while True:
-            nuevo = input("Nueva carrera: ").strip()
+            nuevo = input("Nueva carrera: ").strip().capitalize()
             if nuevo:
                 break
             print("La carrera no puede estar vacia")
@@ -214,7 +214,7 @@ def actualizar_estudiante():
 def agregar_materia():
     print("-----------------")
     print("\nAGREGAR MATERIA\n")
-    codigo_est = input("Codigo del estudiante: ").upper()
+    codigo_est = input("Codigo del estudiante: ").strip().upper()
     e = buscar_estudiante(codigo_est)
     if not e:
         print("No se encontro el estudiante")
@@ -257,7 +257,7 @@ def agregar_materia():
 def calcular_promedio_menu():
     print("-----------------")
     print("\nCALCULAR PROMEDIO POR MATERIA\n")
-    codigo_est = input("Codigo del estudiante: ").upper()
+    codigo_est = input("Codigo del estudiante: ").strip().upper()
     e = buscar_estudiante(codigo_est)
     if not e:
         print("No se encontro el estudiante")
@@ -282,7 +282,7 @@ def calcular_promedio_menu():
 def calcular_asistencia_menu():
     print("-----------------")
     print("\nCALCULAR ASISTENCIA POR MATERIA\n")
-    codigo_est = input("Codigo del estudiante: ").upper()
+    codigo_est = input("Codigo del estudiante: ").strip().upper()
     e = buscar_estudiante(codigo_est)
     if not e:
         print("No se encontro el estudiante")
